@@ -3,8 +3,6 @@ const bcrypt = require("bcryptjs");
 const tokenService = require("./tokenService");
 const UserDto = require("../Dtos/userDto");
 const ApiError = require("../Exceptions/apiError");
-const userController = require("../Controllers/userController");
-const tokenModel = require("../Models/tokenModel");
 
 class UserService {
   async registration(login, password) {
