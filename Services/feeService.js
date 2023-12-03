@@ -22,8 +22,23 @@ class FeeService {
 		return refusedFee;
 	}
 
-	async getAcceptedFees() {
+	async getFees() {
 		const fees = await Fee.find({ isAccepted: true });
+		return fees;
+	}
+
+	async getVolunteersFees() {
+		const fees = await Fee.find({ isAccepted: true, type: "Волонтерський" });
+		return fees;
+	}
+
+	async getMilitaryFees() {
+		const fees = await Fee.find({ isAccepted: true, type: "Військовий" });
+		return fees;
+	}
+
+	async getRebuildingFees() {
+		const fees = await Fee.find({ isAccepted: true, type: "На відбудову" });
 		return fees;
 	}
 }

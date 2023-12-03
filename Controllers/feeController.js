@@ -42,9 +42,36 @@ class FeeController {
 		}
 	}
 
-	async getAcceptedFees(req, res) {
+	async getFees(req, res) {
 		try {
-			const fees = await FeeService.getAcceptedFees();
+			const fees = await FeeService.getFees();
+			return res.json(fees);
+		} catch (e) {
+			res.status(500).json(e);
+		}
+	}
+
+	async getVolunteersFees(req, res) {
+		try {
+			const fees = await FeeService.getVolunteersFees();
+			return res.json(fees);
+		} catch (e) {
+			res.status(500).json(e);
+		}
+	}
+
+	async getMilitaryFees(req, res) {
+		try {
+			const fees = await FeeService.getMilitaryFees();
+			return res.json(fees);
+		} catch (e) {
+			res.status(500).json(e);
+		}
+	}
+
+	async getRebuildingFees(req, res) {
+		try {
+			const fees = await FeeService.getRebuildingFees();
 			return res.json(fees);
 		} catch (e) {
 			res.status(500).json(e);
