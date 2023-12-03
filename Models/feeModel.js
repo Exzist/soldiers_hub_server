@@ -9,6 +9,7 @@ const Fee = new Schema({
 	requisite: { type: String, required: true },
 	finish: { type: String, required: true },
 	isAccepted: { type: Boolean, required: true },
+	image: { type: String },
 });
 
 module.exports = model("Fee", Fee);
