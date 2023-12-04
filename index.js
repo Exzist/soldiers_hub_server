@@ -17,6 +17,7 @@ app.use(
 		origin: [
 			"http://localhost:5173",
 			"https://soldiers-hub-project-1itgohixm-botsyundenys.vercel.app",
+			"https://soldiers-hub-project.vercel.app",
 		],
 	})
 );
