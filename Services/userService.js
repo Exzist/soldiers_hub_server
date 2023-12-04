@@ -8,7 +8,7 @@ class UserService {
   async registration(login, password, isAdmin) {
     const candidate = await UserModel.findOne({ login });
     if (candidate) {
-      throw ApiError.BadRequest("User with this login already exists");
+      throw ApiError.BadRequest("Користувач з таким логіном вже існує");
     }
     const hashPassword = await bcrypt.hash(password, 3);
     const user = await UserModel.create({
@@ -26,11 +26,11 @@ class UserService {
   async login(login, password) {
     const user = await UserModel.findOne({ login });
     if (!user) {
-      throw ApiError.BadRequest("User with this login doesn`t exist");
+      throw ApiError.BadRequest("Користувача з таким логіном не існує");
     }
     const isPassEqual = await bcrypt.compare(password, user.password);
     if (!isPassEqual) {
-      throw ApiError.BadRequest("Wrong password");
+      throw ApiError.BadRequest("Не правильний пароль");
     }
     const userDto = new UserDto(user);
     const tokens = tokenService.generateTokens({ ...userDto });
