@@ -12,27 +12,28 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-  cors({
-    credentials: true,
-    origin: [
-      "http://localhost:5173"
-    ],
-  })
+	cors({
+		credentials: true,
+		origin: [
+			"http://localhost:5173",
+			"https://soldiers-hub-project-1itgohixm-botsyundenys.vercel.app/",
+		],
+	})
 );
 app.use("/auth", authRouter);
 app.use("/fee", feeRouter);
 app.use(errorMiddleware);
 
 const start = async () => {
-  try {
-    await mongoose.connect(process.env.DB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    app.listen(PORT, () => console.log(`Server was started on PORT = ${PORT}`));
-  } catch (error) {
-    console.log(error);
-  }
+	try {
+		await mongoose.connect(process.env.DB_URL, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		app.listen(PORT, () => console.log(`Server was started on PORT = ${PORT}`));
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 start();
