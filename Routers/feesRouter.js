@@ -10,6 +10,7 @@ feesRouter.delete("/refuseApplication/:id", FeeController.refuseFeeApplication);
 feesRouter.get("/getVolunteersFees", FeeController.getVolunteersFees);
 feesRouter.get("/getMilitaryFees", FeeController.getMilitaryFees);
 feesRouter.get("/getRebuildingFees", FeeController.getRebuildingFees);
+feesRouter.get("/getDonnuFees", FeeController.getDonnuFees);
 feesRouter.get("/getFees", FeeController.getFees);
 
 module.exports = feesRouter;
