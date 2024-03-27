@@ -1,9 +1,11 @@
 const FeeService = require("../Services/feeService");
+const fs = require("fs");
 
 class FeeController {
   async createApplication(req, res) {
     try {
-      const fee = await FeeService.createApplication(req.body);
+      const imageSrc = fs.readFileSync("uploads/" + req.file.filename);
+      const fee = await FeeService.createApplication({ ...req.body, imageSrc });
       return res.json(fee);
     } catch (e) {
       res.status(500).json(e);
