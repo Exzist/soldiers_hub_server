@@ -10,7 +10,7 @@ const Fee = new Schema({
   finish: { type: String, required: true },
   isAccepted: { type: Boolean, required: true },
   feeByDonnu: { type: Boolean, required: true },
-  image: { type: String },
+  imageSrc: { type: Buffer, required: true },
 });
 
 module.exports = model("Fee", Fee);

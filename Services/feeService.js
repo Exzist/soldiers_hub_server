@@ -17,6 +17,7 @@ class FeeService {
     });
     return acceptedFee;
   }
+
   async refuseFeeApplication(id) {
     const refusedFee = await Fee.findByIdAndDelete(id);
     return refusedFee;
